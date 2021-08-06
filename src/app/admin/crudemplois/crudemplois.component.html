@@ -1,0 +1,108 @@
+<div class="text-end mt-4" *ngIf="isEdit">
+    <a (click)="ngOnInit()"><span><i class="bi bi-backspace text-primary"></i></span>Back</a>
+</div>
+<form [formGroup]="form" class="row justify-content-center mt-5" >
+      <select ngModel="0" class="form-select col" aria-label="Default select example" formControlName="id_module">
+        <option value="0">Module</option>
+        <option value="{{Module.id}}" *ngFor="let Module of Modules">{{Module.nom}}</option>
+      </select>
+
+      <select ngModel="0" class="form-select col"  aria-label="Default select example" formControlName="jour">
+        <option value="0" >Jour</option>
+        <option value="lundi" >Lundi</option>
+        <option value="mardi" >Mardi</option>
+        <option value="mercredi" >Mercredi</option>
+        <option value="jeudi" >Jeudi</option>
+        <option value="vendredi" >Vendredi</option>
+      </select>
+      <select ngModel="0" class="form-select col"  aria-label="Default select example" formControlName="temps">
+        <option value="0" >Temps</option>
+        <option value="09:00" >09:00  12:00</option>
+        <option value="13:00" >12:00  16:00</option>
+      </select>
+       <select ngModel="0" class="form-select col"  aria-label="Default select example" formControlName="id_semestre">
+        <option value="0" >Semestre</option>
+        <option value="1" >Semestre 1</option>
+        <option value="2" >Semestre 2</option>
+        <option value="3" >Semestre 3</option>
+        <option value="4" >Semestre 4</option>
+        <option value="5" >Semestre 5</option>
+      </select>
+      <select ngModel="0" class="form-select col"  aria-label="Default select example" formControlName="salle">
+        <option value="0" >Salle</option>
+        <option value="LSI 1" >LSI 1</option>
+        <option value="LSI 2" >LSI 2</option>
+        <option value="LSI 3" >LSI 3</option>
+      </select>
+      <input *ngIf="!isEdit" (click)="addSeance()" type="submit" value="submit" class="btn btn-primary col">
+      <input *ngIf="isEdit" (click)="editSeance()" type="submit" value="edit" class="btn btn-primary col">
+
+</form>
+
+
+<ul class="nav nav-tabs justify-content-center mt-5">
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(1)" [class.active] = "isActive && currentSemestre == 1" aria-current="page" >Semestre 1</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(2)" [class.active] = "isActive && currentSemestre == 2" aria-current="page" >Semestre 2</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(3)" [class.active] = "isActive && currentSemestre == 3" aria-current="page" >Semestre 3</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(4)" [class.active] = "isActive && currentSemestre == 4" aria-current="page" >Semestre 4</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(5)" [class.active] = "isActive && currentSemestre == 5" aria-current="page" >Semestre 5</a>
+  </li>
+</ul>
+<h2 class="mt-5 text-center">Salle : {{Salle}} </h2>
+<div class="container mt-4">
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr >
+            <th scope="col" >Jour/temps</th>  
+            <th scope="col" ><span >09:00</span>  <span class="end" >12:00</span> </th>
+            <th scope="col" ><span >13:00</span>  <span class="end">16:00</span> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <th scope="row" >Lundi</th>
+                <td class="text-center">{{Lundi[0]}} <span>  <i *ngIf="Lundi[0]" (click) = "edit(LundiSeance[0])" class="bi bi-pencil-fill text-primary"></i></span> 
+                <span>  <i *ngIf="Lundi[0]" (click) = "deleteSeance(LundiSeance[0])" class="bi bi-trash text-danger"></i> </span> </td>
+                <td  class="text-center">{{Lundi[1]}} <span>  <i *ngIf="Lundi[1]" (click) = "edit(LundiSeance[1])" class="bi bi-pencil-fill text-primary"></i></span>
+                <span>  <i *ngIf="Lundi[1]" (click) = "deleteSeance(LundiSeance[1])" class="bi bi-trash text-danger"></i> </span></td>
+            </tr>
+            <tr>
+            <th scope="row" >Mardi</th>
+            <td class="text-center">{{Mardi[0]}} <span>  <i *ngIf="Mardi[0]" (click) = "edit(MardiSeance[0])" class="bi bi-pencil-fill text-primary"></i></span>
+            <span>  <i *ngIf="Mardi[0]" (click) = "deleteSeance(MardiSeance[0])" class="bi bi-trash text-danger"></i> </span></td>
+            <td class="text-center">{{Mardi[1]}} <span>  <i *ngIf="Mardi[1]" (click) = "edit(MardiSeance[1])" class="bi bi-pencil-fill text-primary"></i></span>
+            <span>  <i *ngIf="Mardi[1]" (click) = "deleteSeance(MardiSeance[1])" class="bi bi-trash text-danger"></i> </span></td>
+            </tr>
+            <tr>
+            <th scope="row" >Mercredi</th>
+            <td class="text-center" >{{Mercredi[0]}} <span>  <i *ngIf="Mercredi[0]" (click) = "edit(MercrediSeance[0])" class="bi bi-pencil-fill text-primary"></i></span>
+            <span>  <i *ngIf="Mercredi[0]" (click) = "deleteSeance(MercrediSeance[0])" class="bi bi-trash text-danger"></i></span></td>
+            <td class="text-center" >{{Mercredi[1]}} <span>  <i *ngIf="Mercredi[1]" (click) = "edit(MercrediSeance[1])" class="bi bi-pencil-fill text-primary"></i></span>
+            <span>  <i *ngIf="Mercredi[1]" (click) = "deleteSeance(MercrediSeance[1])" class="bi bi-trash text-danger"></i></span></td>
+            </tr>
+            <tr>
+            <th scope="row" >Jeudi</th>
+            <td class="text-center" >{{Jeudi[0]}} <span>  <i *ngIf="Jeudi[0]" (click) = "edit(JeudiSeance[0])" class="bi bi-pencil-fill text-primary"></i></span>
+            <span>  <i *ngIf="Jeudi[0]" (click) = "deleteSeance(JeudiSeance[0])" class="bi bi-trash text-danger"></i> </span></td>
+            <td class="text-center" >{{Jeudi[1]}} <span>  <i *ngIf="Jeudi[1]" (click) = "edit(JeudiSeance[1])" class="bi bi-pencil-fill text-primary"></i></span>
+            <span>  <i *ngIf="Jeudi[1]" (click) = "deleteSeance(JeudiSeance[1])" class="bi bi-trash text-danger"></i> </span></td>
+            </tr>
+            <tr>
+            <th scope="row" >Vendredi</th>
+            <td class="text-center" >{{Vendredi[0]}} <span>  <i *ngIf="Vendredi[0]" (click) = "edit(VendrediSeance[0])" class="bi bi-pencil-fill text-primary"></i></span>
+            <span>  <i *ngIf="Vendredi[0]" (click) = "deleteSeance(VendrediSeance[0])" class="bi bi-trash text-danger"></i></span></td>
+            <td class="text-center" >{{Vendredi[1]}} <span>  <i *ngIf="Vendredi[1]" (click) = "edit(VendrediSeance[1])" class="bi bi-pencil-fill text-primary"></i></span>
+            <span>  <i *ngIf="Vendredi[1]" (click) = "deleteSeance(VendrediSeance[1])" class="bi bi-trash text-danger"></i></span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

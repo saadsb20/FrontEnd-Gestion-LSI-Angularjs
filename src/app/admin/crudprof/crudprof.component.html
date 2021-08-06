@@ -1,0 +1,28 @@
+<div class="container mt-5">
+
+    <button routerLink="/admin/addprof" class="btn btn-warning">
+        Ajouter Prof
+    </button>
+</div>
+
+<div class="container mt-5">
+    <table class="table">
+          <tr class="justify-content-center text-center">
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th width="220px">Action</th>
+          </tr>
+          <tr class="justify-content-center text-center" *ngFor="let prof of profs">
+            <td>{{ prof.id }}</td>
+            <td>{{ prof.nom }}</td>
+            <td>{{ prof.prenom }}</td>
+            <td>{{ prof.email }}</td>
+            <td>
+              <a href="#" [routerLink]="['/admin/', 'editprof', prof.id ]"><i class="bi bi-pencil-fill text-primary"></i> </a>
+              <a (click)="delete(prof.id)" ><i class="bi bi-trash text-danger"></i></a> 
+            </td>
+          </tr>
+    </table>
+</div>

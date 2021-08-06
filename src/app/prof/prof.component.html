@@ -1,0 +1,17 @@
+<div class="container row">
+    <ul class="nav nav-tabs justify-content-center mt-5">
+        <li class="nav-item">
+            <a  class="nav-link" routerLink="/prof/profEmplois" (click) = "select(4)" [class.active] = "isActive && selected == 4" aria-current="page" >Emplois</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" routerLink="/prof/cours" (click) = "select(5)" [class.active] = "isActive && selected == 5" aria-current="page" >Cours</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" routerLink="/prof/Notes" (click) = "select(6)" [class.active] = "isActive && selected == 6" aria-current="page" >Notes</a>
+        </li>
+  
+    </ul>
+</div>
+<div class="container mt-5">
+    <router-outlet></router-outlet>
+</div>

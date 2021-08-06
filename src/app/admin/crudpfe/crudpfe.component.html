@@ -1,0 +1,38 @@
+<div class="text-end mt-4" *ngIf="isEdit">
+    <a (click)="ngOnInit()"><span><i class="bi bi-backspace text-primary"></i></span>Back</a>
+</div>
+
+<form [formGroup]="form" class="row justify-content-center mt-5">
+      <input type="text" name="module" placeholder="Sujet" class="col form-control" formControlName="Sujet">
+      <select ngModel="0" class="form-select col" aria-label="Default select example" formControlName="id_prof">
+        <option value="0">Profs</option>
+        <option value="{{Prof.id}}" *ngFor="let Prof of Profs">{{Prof.prenom+ ' ' +Prof.nom}}</option>
+      </select>
+      <select ngModel="0" class="form-select col" aria-label="Default select example" formControlName="id_etudiant">
+        <option value="0">étudiants</option>
+        <option value="{{etudiant.id}}" *ngFor="let etudiant of etudiants">{{etudiant.prenom+ ' ' +etudiant.nom}}</option>
+      </select>
+      <input *ngIf="!isEdit" type="submit" (click)="addPfe()" value="submit" class="btn btn-primary col">
+      <input *ngIf="isEdit" type="submit" (click)="editPfe()" value="edit" class="btn btn-primary col">
+  </form>
+
+
+<div class="container mt-5">
+    <table class="table table-bordered">
+          <tr class="justify-content-center">
+            <th>Sujet</th>
+            <th>Prof</th>
+            <th>étudiant</th>
+            <th width="220px">Action</th>
+          </tr>
+          <tr class="justify-content-center" *ngFor="let Pfe of Pfes">
+            <td>{{ Pfe.Sujet }}</td>
+            <td>{{Pfe.P_Name[0].prenom + ' ' +  Pfe.P_Name[0].nom }}</td>
+            <td>{{ Pfe.E_Name[0].prenom + ' ' +  Pfe.E_Name[0].nom }}</td>
+            <td>
+              <a (click)="edit(Pfe)"><i class="bi bi-pencil-fill text-primary"></i> </a>
+              <a (click)="delete(Pfe.id)" ><i class="bi bi-trash text-danger"></i></a> 
+            </td>
+          </tr>
+    </table>
+</div>

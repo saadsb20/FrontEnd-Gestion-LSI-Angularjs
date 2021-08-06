@@ -1,0 +1,28 @@
+<div class="mt-4 d-flex justify-content-between">
+    <h4>Edit Module</h4>
+    <a href="#" routerLink="/admin/modules" class="btn btn-primaryt"><i class="bi bi-backspace text-primary"></i> <span> Back</span></a>
+  </div>
+  <hr/>
+<div class="container mt-5">
+    <form [formGroup]="form" class="justify-content-center" (submit)="editModule()">
+      <input type="text" class="form-control mt-5" name="module" placeholder="Module"  formControlName="nom">
+      <select [(ngModel)]="Module.ProfName[0].id" class="form-select mt-4" formControlName="id_prof">
+        <option value="{{prof.id}}" *ngFor="let prof of Profs">{{prof.prenom+ ' ' +prof.nom}}
+        </option>
+      </select>
+
+      <select [(ngModel)]="Module.id_semestre" class="form-select mt-4" formControlName="id_semestre">
+        <option value="1" >Semestre 1</option>
+        <option value="2" >Semestre 2</option>
+        <option value="3" >Semestre 3</option>
+        <option value="4" >Semestre 4</option>
+        <option value="5" >Semestre 5</option>
+        <option value="6" >Semestre 6</option>
+      </select>
+      <div class="text-center mt-4">
+        <input type="submit" value="submit" class="btn btn-success">
+      </div>
+      
+  </form>
+</div>
+

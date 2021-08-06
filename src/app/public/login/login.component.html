@@ -1,0 +1,17 @@
+<h1 class="text-center">Please Sign in</h1>
+
+
+<form [formGroup] = "form" (submit)="submit()">
+  <div class="mb-3">  
+    <input type="email" formControlName="email" class="form-control" id="email" placeholder="name@example.com">
+  </div>
+
+  <div class="mb-3">
+    <input type="password" formControlName="password" class="form-control" id="password" placeholder="********">
+  </div>
+
+  <div class="mb-3 text-center">
+    <input type="submit" class="btn btn-primary" value="Login">
+  </div>
+
+</form>

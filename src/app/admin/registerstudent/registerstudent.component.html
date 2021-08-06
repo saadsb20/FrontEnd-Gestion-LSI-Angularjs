@@ -1,0 +1,105 @@
+<div class="mt-5 justify-content-center">
+
+    <div class="d-flex justify-content-between">
+    <h4>Ajouter étudiant</h4>
+    <a href="#" routerLink="/admin/students" class="btn btn-primaryt"><i class="bi bi-backspace"></i> <span> Back</span></a>
+  </div>
+  <hr/>
+ <div>
+    <form  [formGroup]="form" (submit)="submit()">
+
+        <div class="form-group mt-4 ">
+            <div >
+              <input
+                formControlName="nom"
+                id="nom"
+                type="text"
+                class="form-control"
+                placeholder="Nom">
+            </div>
+        </div>
+        <div class="form-group mt-4">
+            <div >
+              <input
+                formControlName="prenom"
+                id="prenom"
+                type="text"
+                class="form-control"
+                placeholder="Prenom">
+            </div>
+        </div>
+
+        
+        
+
+        <div class="form-group mt-4">
+            <div >
+              
+              <input
+                formControlName="email"
+                id="email"
+                type="text"
+                class="form-control"
+                placeholder="Email">
+
+            </div>
+        </div>        
+        
+        <div class="form-group mt-4">
+            <div>
+              
+              <input
+                formControlName="password"
+                id="password"
+                type="text"
+                class="form-control"
+                placeholder="password">
+
+            </div>
+        </div>   
+
+        <div class="form-group mt-4">
+            <div>
+              
+              <input
+                formControlName="date_n"
+                id="date_n"
+                type="date"
+                class="form-control">
+
+            </div>
+        </div>    
+       
+        <div class="form-group mt-4">
+            <div>
+              
+              <input
+                formControlName="CIN"
+                id="CIN"
+                type="text"
+                class="form-control"
+                placeholder="CIN">
+
+            </div>
+        </div>    
+        
+        <div class="form-group mt-4">
+            <div>
+              
+              <input
+                formControlName="CNE"
+                id="CNE"
+                type="text"
+                class="form-control"
+                placeholder="CNE">
+
+            </div>
+        </div>    
+
+        <div class="text-center">
+            <button id="submit" class="btn btn-primary mt-4 mx-5 mb-5" type="submit">Submit</button>
+        </div>
+    </form> 
+ </div>
+</div>
+

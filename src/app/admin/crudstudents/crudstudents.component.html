@@ -1,0 +1,55 @@
+<button [routerLink]="['/admin/', 'addstudent', currentSemestre ]" class="btn btn-warning mt-5">Ajouter étudiant</button>
+
+<ul class="nav nav-tabs justify-content-center mt-5">
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(1)" [class.active] = "isActive && currentSemestre == 1" aria-current="page" >Semestre 1</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(2)" [class.active] = "isActive && currentSemestre == 2" aria-current="page" >Semestre 2</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(3)" [class.active] = "isActive && currentSemestre == 3" aria-current="page" >Semestre 3</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(4)" [class.active] = "isActive && currentSemestre == 4" aria-current="page" >Semestre 4</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(5)" [class.active] = "isActive && currentSemestre == 5" aria-current="page" >Semestre 5</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(6)" [class.active] = "isActive && currentSemestre == 6" aria-current="page" >Semestre 6</a>
+  </li>
+  
+</ul>
+
+<table *ngIf="!empty" class="table table-striped table-hover center">
+    <thead>
+        <tr class="text-center">
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>CNE</th>
+        <th>CIN</th>
+        <th>Email</th>
+        <th>Date de naissance</th>
+        <th>edit | delete</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let etudiant of etudiants" class="text-center">
+        <td class="col-2">{{ etudiant.id }}</td>
+        <td class="col-2">{{ etudiant.nom }}</td>
+        <td class="col-2">{{ etudiant.prenom }}</td>
+        <td >{{ etudiant.CNE }}</td>
+        <td >{{ etudiant.CIN }}</td>
+        <td class="col-2">{{ etudiant.email }}</td>
+        <td class="col-2">{{ etudiant.date_n }}</td>
+
+        <td class="col-2">
+           <a [routerLink]="['/admin/', 'editstudent', etudiant.id  ]" class="mx-2"><i class="bi bi-pencil-fill text-primary"></i></a> 
+           <a (click)="delete(etudiant.id)" ><i class="bi bi-trash text-danger"></i></a> 
+        </td>
+        </tr>
+    </tbody>
+</table>
+<h2 *ngIf="empty" class="mt-5 text-center">Pas d'étudiants pour ce semestre</h2>

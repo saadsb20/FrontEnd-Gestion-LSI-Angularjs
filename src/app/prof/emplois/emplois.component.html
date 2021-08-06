@@ -1,0 +1,45 @@
+
+<ul class="nav nav-tabs justify-content-center mt-5" >
+  <li class="nav-item" *ngFor="let Module of Modules">
+    <a  class="nav-link" (click)="emplois(Module.id,Module.id_semestre)" [class.active] = "isActive && currentModule == Module.id" aria-current="page" >{{Module.nom}}</a>
+  </li>
+</ul>
+<h2 class="mt-5 text-center">Salle : {{Salle}} </h2>
+<div class="container mt-4">
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr >
+            <th scope="col" >Jour/temps</th>  
+            <th scope="col" ><span >09:00</span>  <span class="end" >12:00</span> </th>
+            <th scope="col" ><span >13:00</span>  <span class="end">16:00</span> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr >
+                <th scope="row" >Lundi</th>
+                <td class="text-center">{{Lundi[0]}}  </td>
+                <td  class="text-center">{{Lundi[1]}}</td>
+            </tr>
+            <tr>
+            <th scope="row" >Mardi</th>
+            <td class="text-center">{{Mardi[0]}} </td>
+            <td class="text-center">{{Mardi[1]}}</td>
+            </tr>
+            <tr>
+            <th scope="row" >Mercredi</th>
+            <td class="text-center" >{{Mercredi[0]}} </td>
+            <td class="text-center" >{{Mercredi[1]}} </td>
+            </tr>
+            <tr>
+            <th scope="row" >Jeudi</th>
+            <td class="text-center" >{{Jeudi[0]}} </td>
+            <td class="text-center" >{{Jeudi[1]}} </td>
+            </tr>
+            <tr>
+            <th scope="row" >Vendredi</th>
+            <td class="text-center" >{{Vendredi[0]}} </td>
+            <td class="text-center" >{{Vendredi[1]}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

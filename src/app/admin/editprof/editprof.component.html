@@ -1,0 +1,55 @@
+<div class="mt-5 justify-content-center">
+
+    <div class="d-flex justify-content-between">
+    <h4>Edit prof</h4>
+    <a href="#" routerLink="/admin/profs" class="btn btn-primaryt"><i class="bi bi-backspace"></i> <span> Back</span></a>
+  </div>
+  <hr/>
+<div >
+    <form  [formGroup]="form" (submit)="submit()">
+
+        <div class="form-group mt-4 ">
+            <div >
+              <input
+                formControlName="nom"
+                id="nom"
+                [(ngModel)]="prof[0].nom"
+                type="text"
+                class="form-control"
+                placeholder="Nom">
+            </div>
+        </div>
+        <div class="form-group mt-4">
+            <div >
+              <input
+                formControlName="prenom"
+                id="prenom"
+                [(ngModel)]="prof[0].prenom"
+                type="text"
+                class="form-control"
+                placeholder="Prenom">
+            </div>
+        </div>
+
+        
+        
+
+        <div class="form-group mt-4">
+            <div >
+              
+              <input
+                formControlName="email"
+                id="email"
+                [(ngModel)]="prof[0].email"
+                type="text"
+                class="form-control"
+                placeholder="Email">
+
+            </div>
+        </div>        
+        <div class="text-center">
+            <button id="submit" class="btn btn-primary mt-4 mx-5" type="submit">Submit</button>
+        </div>
+    </form> 
+    </div>
+</div>

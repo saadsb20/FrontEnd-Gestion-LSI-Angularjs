@@ -1,0 +1,36 @@
+<ul class="nav nav-tabs justify-content-center mt-5" >
+  <li class="nav-item" *ngFor="let Module of Modules">
+    <a  class="nav-link" (click)="Notes(Module.id,Module.id_semestre)" [class.active] = "isActive && currentModule == Module.id" aria-current="page" >{{Module.nom}}</a>
+  </li>
+</ul>
+<div class="text-end mt-4" *ngIf="isEdit">
+    <a (click)="ngOnInit()"><span><i class="bi bi-backspace text-primary"></i></span>Back</a>
+</div>
+<form [formGroup]="form" class="row justify-content-center mt-5" >
+      <select ngModel="0" class="form-select col-3" aria-label="Default select example" formControlName="id_etudiant">
+        <option value="0">Etudiant</option>
+        <option value="{{Etudiant.id}}" *ngFor="let Etudiant of Etudiants">{{Etudiant.prenom+' '+Etudiant.nom}}</option>
+      </select>
+      <input class="col-3" type="text" placeholder="Note" formControlName="valeur">
+      <input *ngIf="!isEdit" (click)="addNote()" type="submit" value="submit" class="btn btn-primary col-3">
+      <input *ngIf="isEdit" (click)="editNote()" type="submit" value="edit" class="btn btn-primary col-3">
+</form>
+
+<div class="container mt-5">
+    <table class="table">
+          <tr class="justify-content-center     ">
+            <th>Etudiant</th>
+            <th>Valeur</th>
+            <th width="220px">Action</th>
+          </tr>
+          <tr class="justify-content-center" *ngFor="let note of notes">
+            <td>{{ note.EtudiantName[0].prenom+' '+note.EtudiantName[0].nom }}</td>
+            <td> {{ note.valeur }}</td>
+            <td>
+              <a (click)="edit(note)"><i class="bi bi-pencil-fill text-primary"></i> </a>
+              <a (click)="delete(note.id)" ><i class="bi bi-trash text-danger"></i></a> 
+            </td>
+          </tr>
+    </table>
+</div>
+

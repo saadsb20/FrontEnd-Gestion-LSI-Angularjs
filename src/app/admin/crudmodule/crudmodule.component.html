@@ -1,0 +1,62 @@
+<div class="container mt-5">
+  <h3 class="my-4">Ajouter Module</h3>
+    <form [formGroup]="form" class="row justify-content-center" (submit)="addModule()">
+      <input type="text" name="module" placeholder="Module" class="col form-control" formControlName="nom">
+      <select ngModel="0" class="form-select col" aria-label="Default select example" formControlName="id_prof">
+        <option value="0">Profs</option>
+        <option value="{{prof.id}}" *ngFor="let prof of Prof">{{prof.prenom+ ' ' +prof.nom}}</option>
+      </select>
+
+      <select ngModel="0" class="form-select col"  aria-label="Default select example" formControlName="id_semestre">
+        <option value="0" >Semestre</option>
+        <option value="1" >Semestre 1</option>
+        <option value="2" >Semestre 2</option>
+        <option value="3" >Semestre 3</option>
+        <option value="4" >Semestre 4</option>
+        <option value="5" >Semestre 5</option>
+      </select>
+      <input type="submit" value="submit" class="btn btn-primary col">
+  </form>
+
+<ul class="nav nav-tabs justify-content-center mt-5">
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(1)" [class.active] = "isActive && currentSemestre == 1" aria-current="page" >Semestre 1</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(2)" [class.active] = "isActive && currentSemestre == 2" aria-current="page" >Semestre 2</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(3)" [class.active] = "isActive && currentSemestre == 3" aria-current="page" >Semestre 3</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(4)" [class.active] = "isActive && currentSemestre == 4" aria-current="page" >Semestre 4</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" (click)="semestre(5)" [class.active] = "isActive && currentSemestre == 5" aria-current="page" >Semestre 5</a>
+  </li>
+
+  
+</ul>
+
+
+
+
+<div class="container mt-5">
+    <table class="table">
+          <tr class="justify-content-center     ">
+            <th>Module</th>
+            <th>Prof</th>
+            <th>Semestre</th>
+            <th width="220px">Action</th>
+          </tr>
+          <tr class="justify-content-center" *ngFor="let Module of Modules">
+            <td>{{ Module.nom }}</td>
+            <td>{{Module.ProfName[0].prenom + ' ' +  Module.ProfName[0].nom }}</td>
+            <td>Semestre {{ Module.id_semestre }}</td>
+            <td>
+              <a href="#" [routerLink]="['/admin/', 'editmodule', Module.id ]"><i class="bi bi-pencil-fill text-primary"></i> </a>
+              <a (click)="delete(Module.id)" ><i class="bi bi-trash text-danger"></i></a> 
+            </td>
+          </tr>
+    </table>
+</div>

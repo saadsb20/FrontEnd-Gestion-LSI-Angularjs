@@ -1,0 +1,26 @@
+<div class="container row">
+    <ul class="nav nav-tabs justify-content-center mt-5">
+  <li class="nav-item">
+    <a  class="nav-link" routerLink="/admin" (click) = "select(1)" [class.active] = "isActive && selected == 1" aria-current="page" >Dashboard</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" routerLink="/admin/students" (click) = "select(2)" [class.active] = "isActive && selected == 2" aria-current="page" >étudiants</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" routerLink="/admin/profs" (click) = "select(3)" [class.active] = "isActive && selected == 3" aria-current="page" >profs</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" routerLink="/admin/modules" (click) = "select(4)" [class.active] = "isActive && selected == 4" aria-current="page" >Modules</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" routerLink="/admin/emplois" (click) = "select(5)" [class.active] = "isActive && selected == 5" aria-current="page" >Emplois</a>
+  </li>
+  <li class="nav-item">
+    <a  class="nav-link" routerLink="/admin/pfes" (click) = "select(6)" [class.active] = "isActive && selected == 6" aria-current="page" >PFE</a>
+  </li>
+  
+</ul>
+</div>
+
+
+<router-outlet></router-outlet>
