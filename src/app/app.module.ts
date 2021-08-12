@@ -12,17 +12,19 @@ import { AdminModule } from './admin/admin.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AvatarModule } from 'ngx-avatar';
 import { ProfModule } from './prof/prof.module';
+import { StudentModule } from './student/student.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PublicModule,
     AdminModule,
+    StudentModule,
     ProfModule,
     RouterModule,
     AvatarModule,

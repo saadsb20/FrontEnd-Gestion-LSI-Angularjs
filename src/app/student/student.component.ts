@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class StudentComponent implements OnInit {
   user;
   role;
+  selected: number;
+  isActive = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -16,6 +18,10 @@ export class StudentComponent implements OnInit {
     this.role = localStorage.getItem('role');
     if (this.role !== 'Student')
       this.router.navigate(['/forbidden']);
+  }
+  select(int) {
+    this.selected = int;
+    this.isActive = true;
   }
 
 }

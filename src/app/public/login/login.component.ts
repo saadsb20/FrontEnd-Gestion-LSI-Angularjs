@@ -46,7 +46,9 @@ export class LoginComponent implements OnInit {
         }
         else if (res.role == 'Student') {
           this.router.navigate(['/student']);
-          localStorage.setItem('username', res.user.nom + ' ' + res.user.prenom)
+          localStorage.setItem('username', res.user.nom + ' ' + res.user.prenom);
+          localStorage.setItem('semestre', res.user.id_semestre)
+          localStorage.setItem('id', res.user.id)
         }
         else if (res.role == 'Teacher') {
           this.router.navigate(['/prof']);

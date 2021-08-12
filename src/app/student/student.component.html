@@ -1,3 +1,17 @@
-<p>
-    Hi {{user}} 
-</p>
+<div class="container row">
+    <ul class="nav nav-tabs justify-content-center mt-5">
+        <li class="nav-item">
+            <a  class="nav-link" routerLink="/student/studentEmplois" (click) = "select(1)" [class.active] = "isActive && selected == 1" aria-current="page" >Emplois</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" routerLink="/student/studentCours" (click) = "select(2)" [class.active] = "isActive && selected == 2" aria-current="page" >Cours</a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" routerLink="/student/studentNotes" (click) = "select(3)" [class.active] = "isActive && selected == 3" aria-current="page" >Notes</a>
+        </li>
+  
+    </ul>
+</div>
+<div class="container mt-5">
+    <router-outlet></router-outlet>
+</div>

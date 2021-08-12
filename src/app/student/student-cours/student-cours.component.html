@@ -1,0 +1,12 @@
+<div class="container mt-5">
+    <table class="table table-bordered">
+          <tr class="justify-content-center">
+            <th>Modules</th>
+            <th>Prof</th>
+          </tr>
+          <tr class="justify-content-center" *ngFor="let Cour of Cours">
+            <td>{{ Cour.nom }}</td>
+            <td>{{ Cour.ProfName[0].nom+' '+Cour.ProfName[0].prenom }}</td>
+          </tr>
+    </table>
+</div>

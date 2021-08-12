@@ -20,6 +20,9 @@ import { ForbiddenComponent } from './public/forbidden/forbidden.component';
 import { HomeComponent } from './public/home/home.component';
 import { LoginComponent } from './public/login/login.component';
 import { PublicComponent } from './public/public.component';
+import { StudentCoursComponent } from './student/student-cours/student-cours.component';
+import { StudentEmploisComponent } from './student/student-emplois/student-emplois.component';
+import { StudentNotesComponent } from './student/student-notes/student-notes.component';
 import { StudentComponent } from './student/student.component';
 
 const routes: Routes = [
@@ -33,7 +36,15 @@ const routes: Routes = [
 
     ]
   },
-  { path: 'student', component: StudentComponent },
+  {
+    path: 'student',
+    component: StudentComponent,
+    children: [
+      { path: 'studentEmplois', component: StudentEmploisComponent },
+      { path: 'studentCours', component: StudentCoursComponent },
+      { path: 'studentNotes', component: StudentNotesComponent }
+    ],
+  },
   {
     path: 'prof',
     component: ProfComponent,

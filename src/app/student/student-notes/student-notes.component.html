@@ -1,0 +1,12 @@
+<div class="container mt-5">
+    <table class="table table-bordered">
+          <tr class="justify-content-center">
+            <th>Modules</th>
+            <th>Note</th>
+          </tr>
+          <tr class="justify-content-center" *ngFor="let Note of Notes">
+            <td>{{ Note.ModuleName[0].nom }}</td>
+            <td>{{ Note.valeur }}</td>
+          </tr>
+    </table>
+</div>
