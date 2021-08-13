@@ -23,7 +23,7 @@ export class NotesComponent implements OnInit {
     this.getModule();
     this.isEdit = false;
     this.form = new FormGroup({
-      id_module: new FormControl('0'),
+      id_module: new FormControl(this.currentModule),
       id_etudiant: new FormControl('0'),
       valeur: new FormControl('')
     });

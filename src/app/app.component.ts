@@ -67,5 +67,7 @@ export class AppComponent implements OnInit {
     localStorage.removeItem('role');
     localStorage.removeItem('token');
     localStorage.removeItem('id_prof');
+    localStorage.removeItem('id');
+    localStorage.removeItem('semestre');
   }
 }

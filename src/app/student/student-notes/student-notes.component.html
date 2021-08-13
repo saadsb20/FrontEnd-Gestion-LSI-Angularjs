@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <table class="table table-bordered">
+    <table *ngIf="Notes" class="table table-bordered">
           <tr class="justify-content-center">
             <th>Modules</th>
             <th>Note</th>
@@ -9,4 +9,5 @@
             <td>{{ Note.valeur }}</td>
           </tr>
     </table>
+    <h2 *ngIf="!Notes" class="text-center mt-4">Les notes ne sont pas disponibles</h2>
 </div>
